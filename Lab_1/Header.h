@@ -7,12 +7,11 @@ using namespace std;
 #include <vector>
 #include <sstream>
 #include <ostream>
-
 #define ERROR_OPENING_FILE 1
 #define EXIT_SUCCESS 0
 
 
-class FileFormatter {
+class FileStructure {
 private:
     string filename;
     int width;
@@ -20,10 +19,10 @@ private:
     void spacer(string& buff, int current_length, ofstream& output);
 
 public:
-    FileFormatter(int argc, char** argv);
+    FileStructure(int length, string filename);
 
-    void read_from_file();
-    void print_words();
+    void ReadFile();
+    void PrintWords();
     int text_align_center(string output_filename);
 
     string get_name() { return filename; }
