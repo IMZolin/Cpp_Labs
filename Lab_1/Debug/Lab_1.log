@@ -1,4 +1,5 @@
-﻿  FileStructure.cpp
-  main.cpp
-  Создание кода...
+﻿  main.cpp
+D:\University\C++\Labs\Lab_1\main.cpp(60,35): warning C4018: <: несоответствие типов со знаком и без знака
+D:\University\C++\Labs\Lab_1\main.cpp(65,26): warning C4018: <: несоответствие типов со знаком и без знака
+D:\University\C++\Labs\Lab_1\main.cpp(69,21): warning C4018: >: несоответствие типов со знаком и без знака
   Lab_1.vcxproj -> D:\University\C++\Labs\Lab_1\Debug\Lab_1.exe

@@ -9,9 +9,26 @@ void CenterString(string str, int required_len)
 	}
 }
 
-FileStructure::FileStructure(int length, string filename)
+FileStructure::FileStructure(int argc, char** argv)
 {
+	filename = argv[1];
+	width = atoi(argv[2]);
+}
 
+string operator * (string a, unsigned int b) {
+	string output = "";
+	while (b--) {
+		output += a;
+	}
+	return output;
+}
+
+void FileStructure::spacer(string& buff, int current_length, ofstream& output) {
+	int diff;
+	diff = (width - current_length) / 2;
+	string space = " ";
+	output << (space * diff) + buff + (space * diff) + '\n';
+	buff.clear();
 }
 
 void FileStructure::ReadFile()

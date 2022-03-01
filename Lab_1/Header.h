@@ -19,7 +19,7 @@ private:
     void spacer(string& buff, int current_length, ofstream& output);
 
 public:
-    FileStructure(int length, string filename);
+    FileStructure(int argc, char** argv);
 
     void ReadFile();
     void PrintWords();
