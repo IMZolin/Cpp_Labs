@@ -56,37 +56,38 @@ void Formatter(vector<string>& words, int width)
 	int cur_len = 0;
 	for (auto& word : words)
 	{
-		int width_copy = width;
-		if (cur_len + word.length() + 1 < width_copy) {
+		if (cur_len + word.length() + 1 <= width) {
 			cur_len += (int)word.length() + 1;
-			buf += (word + " ");
+			buf += word + " ";
 			continue;
 		}
-		else if (word.length() < width_copy) {
-			spacer(buf, cur_len, width_copy);
-			cur_len = 0;
+
+		if (cur_len) {
+			spacer(buf, cur_len, width);
 		}
+
 		if (word.length() > width) {
 			for (auto& letter : word) {
-				cout << letter;
 				k++;
+				buf += letter;
 				if (k == width) {
 					k = 0;
-					cout << '\n';
-					//break;
+					cout << buf + '\n';
+					buf.clear();
 				}
-			
 			}
-			cout << " ";
-			width_copy -= k;
+			buf += " ";
+			cur_len = (int)buf.length();
+			k = 0;
+			continue;
 		}
-		if (word.length() == width) {
-			cout << word;
-			cout << '\n';
+
+		if (word.length() <= width) {
+			buf += word + " ";
+			cur_len = (int)buf.length();
 		}
-		if (!width_copy)
-			cout << '\n';
 	}
+	spacer(buf, cur_len, width);
 }
 int main(int argc, char** argv)
 {
