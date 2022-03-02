@@ -6,7 +6,7 @@ using namespace std;
 #include <vector>
 #include <sstream>
 #include <ostream>
-
+//Output the text aligned in the center using whitespace
 void spacer(string& buff, int cur_len, int width) {
 	int diff;	
 	diff = (width - cur_len) / 2;
@@ -14,14 +14,15 @@ void spacer(string& buff, int cur_len, int width) {
 	cout << whitespace + buff + whitespace + '\n';
 	buff.clear();
 }
+//Print words
 void PrintWords(string words)
 {
 	for (auto& w : words) {
 		cout << w << endl;
 	}
 }
-
-vector<string> ReadFile(string filename, int width)
+//Read text in input.txt. Params:filename, required length. Return result in array(vector) of words
+vector<string> ReadFile(string filename)
 {
 	ifstream file;
 	vector<string>words;
@@ -48,7 +49,7 @@ vector<string> ReadFile(string filename, int width)
 	file.close();
 	return words;
 }
-
+//Read text in input.txt. Params:filename, required length. Return result in array(vector) of words
 void Formatter(vector<string>& words, int width)
 {
 	int k = 0;
@@ -61,11 +62,9 @@ void Formatter(vector<string>& words, int width)
 			buf += word + " ";
 			continue;
 		}
-
 		if (cur_len) {
 			spacer(buf, cur_len, width);
 		}
-
 		if (word.length() > width) {
 			for (auto& letter : word) {
 				k++;
@@ -81,7 +80,7 @@ void Formatter(vector<string>& words, int width)
 			k = 0;
 			continue;
 		}
-
+		//
 		if (word.length() <= width) {
 			buf += word + " ";
 			cur_len = (int)buf.length();
@@ -94,12 +93,12 @@ int main(int argc, char** argv)
 	setlocale(LC_ALL, "rus");
 	std::cout << "There are arguments:\n";
 	string filename = argv[1];
-	int width = atoi(argv[2]);
+	int width = atoi(argv[2]);//convert str to int
 
 	cout << "Required length = " << width;
 	cout << "\nFile name for text = "<<filename;
 	cout << "\n";
-	vector<string> text = ReadFile(filename, width);
+	vector<string> text = ReadFile(filename);
 	Formatter(text, width);
 	return 0;
 }
