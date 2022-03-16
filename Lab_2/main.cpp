@@ -1,5 +1,7 @@
-#include"geometry.h"
-
+#include"vector2d.h"
+#define SPEED 10
+vector2D speedX(SPEED, 0);
+vector2D speedY(0, SPEED);
 SDL_Window* window = NULL;
 SDL_Renderer* renderer = NULL;
 SDL_Event event;
@@ -42,7 +44,30 @@ void Init()
 		DeInit(1);
 	}
 }
+void KeyPressEvent(vector2D v)
+{
+	while (SDL_PollEvent(&event) != 0)
+	{
+		if (event.type == SDL_KEYDOWN)
+		{
+			switch (event.key.keysym.sym)
+			{
+				case SDLK_UP:
+					v += speedY;
+				case SDLK_DOWN:
+					v -= speedY;
+				case SDLK_RIGHT:
+					v += speedX;
+				case SDLK_LEFT:
+					v -= speedX;
 
+				default:
+					break;
+			}		
+		}
+		exit(1);
+	}
+}
 void Draw()
 {
 
@@ -53,7 +78,7 @@ int main(int argc, char* argv[])
 	int x_start = 0, y_start = 0;
 	int x_finish = 1, y_finish = 1;
 	int tmp_x = 1, tmp_y = 1;
-	GeometricVector v(x_start, x_finish, y_start, y_finish,{ tmp_x,tmp_y });
+	//vector2D v(x_start, x_finish, y_start, y_finish,{ tmp_x,tmp_y });
 
 	Init();
 	SDL_Delay(5000);

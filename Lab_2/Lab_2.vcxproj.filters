@@ -18,12 +18,15 @@
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="vector2d.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="geometry.h">
+    <ClInclude Include="color.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="color.h">
+    <ClInclude Include="vector2d.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
