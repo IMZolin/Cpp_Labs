@@ -1,4 +1,0 @@
-﻿  main.cpp
-D:\University\C++\Labs\Lab_2\Header.h(30,19): warning C4244: return: преобразование "double" в "int", возможна потеря данных
-main.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __thiscall Segment::Segment(class Point,class Point,int)" (??0Segment@@QAE@VPoint@@0H@Z) в функции _main.
-D:\University\C++\Labs\Lab_2\Debug\Lab_2.exe : fatal error LNK1120: неразрешенных внешних элементов: 1

@@ -1,47 +1,26 @@
+#ifndef VECTOR2D_H
+#define VECTOR2D_H
 #pragma once
 #include <iostream>
-#include <conio.h>
-#include<SDL.h>
-#include "color.h"
+#include <math.h>
 
-using namespace std;
-using std::string;
-using std::memcmp;
-#pragma warning(disable : 4996)
-
-
-class vector2D
+class Vector2d
 {
 public:
-    vector2D();
-    vector2D(double x_, double y_);
-    vector2D(const vector2D& v);
-
-    vector2D& operator=(const vector2D& v);
-
-    vector2D operator+(const vector2D& v) const;
-    vector2D operator-(const vector2D& v) const;
-    vector2D operator-() const;
-    vector2D operator*(const double i) const;
-    vector2D operator/(const double i) const;
-
-    vector2D& operator+=(const vector2D& v);
-    vector2D& operator-=(const vector2D& v);
-    vector2D& operator*=(const double i);
-    vector2D& operator/=(const double i);
-
-    inline double x() const { return x_; }
-    inline double y() const { return y_; }
-
-    inline void setX(double x) { x_ = x; }
-    inline void setY(double y) { y_ = y; }
-
-    double lenght() const;
-
+	Vector2d(int x, int y) {
+		this->x = x;
+		this->y = y;
+	}
+	int getX() { return x; }
+	int getY() { return y; }
+	Vector2d operator +(Vector2d& right) const { return Vector2d(this->x + right.getX(), this->y + right.getY()); }
+	Vector2d operator -(Vector2d& right) const { return Vector2d(this->x - right.getX(), this->y - right.getY()); }
+	Vector2d operator *(Vector2d& right) const { return Vector2d(this->x * right.getX(), this->y * right.getY()); }
+	//Vector2d operator ~=(Vector2d& v);
+	double length() { return sqrt(this->x * this->x + this->y * this->y); }
+	double cos(Vector2d right) { return (this->x * (double)right.x + this->y * (double)right.y) / sqrt(this->length() * this->length() * right.length() * right.length()); }
 private:
-    double x_;
-    double y_;
+    int x;
+    int y;
 };
-
-
-
+#endif 
