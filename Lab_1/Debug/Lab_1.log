@@ -1,5 +1,5 @@
 ﻿  main.cpp
-D:\University\C++\Labs\Lab_1\main.cpp(61,35): warning C4018: <=: несоответствие типов со знаком и без знака
-D:\University\C++\Labs\Lab_1\main.cpp(71,21): warning C4018: >: несоответствие типов со знаком и без знака
-D:\University\C++\Labs\Lab_1\main.cpp(87,21): warning C4018: <=: несоответствие типов со знаком и без знака
+D:\University\C++\Labs\Lab_1\main.cpp(60,35): warning C4018: <=: несоответствие типов со знаком и без знака
+D:\University\C++\Labs\Lab_1\main.cpp(68,21): warning C4018: >: несоответствие типов со знаком и без знака
+D:\University\C++\Labs\Lab_1\main.cpp(84,21): warning C4018: <=: несоответствие типов со знаком и без знака
   Lab_1.vcxproj -> D:\University\C++\Labs\Lab_1\Debug\Lab_1.exe

@@ -1,0 +1,33 @@
+&menu:
+	&window:
+		id: 0
+		name: "Main Window"
+		size: 800, 600
+		&button:
+			id: 0
+			position: 50, 50
+			size: 200, 100
+			text: "Open sub menu"
+		&button:
+			id: 1
+			position: 50, 165
+			size: 200, 100
+			text: "Open Dialog Box"
+		&button:
+				id: 2
+				position: 50, 280
+				size: 200, 100
+				text: "Close"
+		&sub_menu:
+			&button:
+				id: 3
+				position: 50, 50
+				size: 200, 100
+				text: "Close"
+	&dialog_box:
+		id: 0
+		type: error
+		size: 400, 200
+		name: "Error!"
+		text: "Error occured. (actually buttons doesn't do anything)"
+		
