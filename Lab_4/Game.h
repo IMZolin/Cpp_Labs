@@ -14,31 +14,33 @@ public:
 	//Main game function 
 	void gameLoop();
 	// Handle events
-	void ProcessEvents();
+	void ProcessEvents(sf::Clock clock, bool& state);
 	// Update the computer's paddle direction according to the ball position
-	void UpdateComputerDirection();
+	void UpdateComputerDirection(sf::Clock& AITimer) { this->paddles.UpdateDirection(this->ball, AITimer); }
 	//Update objects
-	void Update(float deltaTime);
+	void Update(bool& state,float deltaTime, sf::Clock& AITimer);
 	//Draw objects
-	void Render();
+	void Render(bool& state);
 	// Check collisions between the ball and the screen
-	void checkBallCollisions();
+	void checkBallCollisions(bool& state, sf::String& str) { this->ball.CheckCollisions(state, str, gameWidth, gameHeight); }
 	// Check the collisions between the ball and the paddles
-	void checkPaddlesCollisions();
+	void checkPaddlesCollisions(Ball& ball){ this->paddles.CheckCollisions(ball); }
+	// Move the ball
+	void MoveBall(float deltaTime) { this->ball.Move(deltaTime); };
+	// Move the player's and computer's paddles
+	void MovePaddles(float deltaTime) { this->paddles.Move(deltaTime, gameHeight); };
 
-	bool getIsPlaying() { return this->isPlaying; }
-	void setIsPlaying(bool state) { this->isPlaying = state; }
-	sf::Clock getClock() { return this->clock; }
-	Ball GetBall() { return this->ball; }
-	Paddles GetPaddles() { return this->paddles; }
-	void SetBall(Ball ball) { this->ball = ball; }
+	Ball& GetBall() { return this->ball; }
+	Paddles& GetPaddles() { return this->paddles; }
+	void SetPosBall(sf::Vector2f coord) { this->ball.SetPosition(coord); }
+	void SetPosPlayer(sf::Vector2f coord) { this->paddles.SetPlayerPosition(coord); }
+	void SetPosComputer(sf::Vector2f coord) { this->paddles.SetComputerPosition(coord); }
+	void ResetBallAngle() { this->ball.ResetAngle(); }
+	void SetMessage(sf::String& str) { this->pauseMessage.setString(str); }
 private:
-	bool isPlaying;
-	sf::Clock clock;
 	sf::RenderWindow window;
 	Ball ball;
 	Paddles paddles;
-	sf::Sound sound;
 	sf::Font font;
 	sf::Text pauseMessage;
 };
