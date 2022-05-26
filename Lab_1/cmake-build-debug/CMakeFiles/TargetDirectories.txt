@@ -1,0 +1,2 @@
+D:/University/C++/Labs/Lab_1/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/University/C++/Labs/Lab_1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
